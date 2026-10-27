@@ -33,3 +33,15 @@ test('controller skips indexing/caret packets and bounds icon/menu rebuilding to
 test('shutdown and a destroyed native Tray reject late status packets without native calls',()=>{
  for(const stop of['dispose','destroy']){let destroyed=false,calls=0;const tray={isDestroyed:()=>destroyed,setImage:()=>{if(destroyed)throw new Error('Native Tray already destroyed');calls++;},setToolTip:()=>calls++,setContextMenu:()=>calls++},controller=new StatusTray({tray,createIcon:()=>Buffer.from('owned native image'),createMenu:()=>({})});controller.refresh({});assert.equal(calls,3);if(stop==='dispose')controller.dispose();else destroyed=true;assert.equal(controller.refresh({items:[{kind:'text'}],settings:{language:'tr'},updateVersion:'99.0.0'}),false);assert.equal(calls,3);assert.equal(controller.snapshot().count,0);}
 });
+
+test('pausing clipboard capture updates tray menu and tooltip without altering saved counts',()=>{
+ const {statusSummary}=require('../lib/status-summary.cjs');
+ const input={items:[],settings:{visibleKinds:['image','text','link'],language:'tr',capturePaused:false}};
+ const active=statusSummary(input);
+ const paused=statusSummary({...input,settings:{...input.settings,capturePaused:true}});
+ assert.equal(active.count,paused.count);
+ assert.equal(paused.capturePaused,true);
+ assert.notEqual(paused.menuKey,active.menuKey);
+ assert.match(paused.tooltip,/Pano yakalama duraklatıldı/);
+ assert.doesNotMatch(active.tooltip,/duraklatıldı/);
+});
