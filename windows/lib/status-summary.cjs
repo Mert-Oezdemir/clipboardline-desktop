@@ -8,11 +8,11 @@ function translated(language,key,...values){let index=0;return(catalogs[language
 function statusSummary({items=[],settings={},updateVersion=null,systemLocale='en'}={}){
  const kinds=Array.isArray(settings.visibleKinds)&&settings.visibleKinds.length?new Set(settings.visibleKinds):new Set(KINDS),counts={image:0,text:0,link:0};
  for(const item of items)if(item&&!item.trashedAt&&!item.hiddenFromShelf&&kinds.has(item.kind)&&Object.hasOwn(counts,item.kind))counts[item.kind]++;
- const count=counts.image+counts.text+counts.link,badge=count>9?'9+':String(count),language=languageCode(settings.language,systemLocale),version=typeof updateVersion==='string'&&updateVersion?updateVersion:null;
+ const count=counts.image+counts.text+counts.link,badge=count>9?'9+':String(count),language=languageCode(settings.language,systemLocale),version=typeof updateVersion==='string'&&updateVersion?updateVersion:null, capturePaused=settings.capturePaused===true;
  const description=count?translated(language,'%d images · %d texts · %d links on the line',counts.image,counts.text,counts.link):translated(language,'The line is empty');
  const update=version?translated(language,'Update available')+' · '+(version.length>28?version.slice(0,27)+'…':version):null;
- const tooltip=['ClipBoardLine',description,update].filter(Boolean).join('\n').slice(0,127);
- return Object.freeze({images:counts.image,texts:counts.text,links:counts.link,count,badge,language,description,tooltip,updateVersion:version,dim:count===0&&!version,highlight:!!version,iconKey:badge+':'+(count===0&&!version?'dim':'normal')+':'+!!version,menuKey:JSON.stringify([language,version]),key:JSON.stringify([counts.image,counts.text,counts.link,language,version])});
+ const tooltip=['ClipBoardLine',description,capturePaused?(language==='tr'?'Pano yakalama duraklatıldı':'Clipboard capture paused'):null,update].filter(Boolean).join('\n').slice(0,127);
+ return Object.freeze({images:counts.image,texts:counts.text,links:counts.link,count,badge,language,description,tooltip,updateVersion:version,dim:count===0&&!version,highlight:!!version,iconKey:badge+':'+(count===0&&!version?'dim':'normal')+':'+!!version,capturePaused,menuKey:JSON.stringify([language,version,capturePaused]),key:JSON.stringify([counts.image,counts.text,counts.link,language,version,capturePaused])});
 }
 const GLYPHS=Object.freeze({
  '0':['111','101','101','101','111'],'1':['010','110','010','010','111'],'2':['111','001','111','100','111'],'3':['111','001','111','001','111'],'4':['101','101','111','001','001'],
