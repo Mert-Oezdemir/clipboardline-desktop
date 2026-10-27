@@ -250,6 +250,15 @@ When enabled, update checks are scheduled after launch when due and hourly while
 
 [Windows implementation and validation guide](windows/README.md)
 
+## Pause Windows clipboard history without losing your library
+
+The Windows system-tray menu now includes **Pause clipboard capture**
+(**Pano yakalamayı duraklat** in Turkish). Check it to stop saving new copied
+texts, images and links, including clipboard reads already in progress.
+Uncheck it to resume. The choice persists across restarts and is reflected
+in the tray tooltip. It does not erase existing history or stop explicit
+screenshots, imports, or web requests from earlier saved links.
+
 ## Local collection. Explicit connections.
 
 - **Stored on your device.** History, folders, tags, notes, thumbnails and search indexes live locally. ClipBoardLine does not provide cloud sync. Local storage is not a password vault; choose what you copy and retain.
