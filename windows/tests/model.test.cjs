@@ -113,3 +113,13 @@ test('fresh global defaults match Mac while old toggle choices and optional-off 
  const restored=new Store(dir);assert.equal(restored.data.settings.shortcuts.toggle,'Control+Alt+Space');assert.equal(restored.data.settings.shortcuts.library,'');assert.equal(restored.data.settings.shortcuts.copyLatest,'');
  restored.modify('setSettings',{patch:{shortcuts:{library:'Control+Alt+L',copyLatest:'Control+Alt+C'}}});assert.equal(new Store(dir).data.settings.shortcuts.library,'Control+Alt+L');restored.modify('setSettings',{patch:{shortcuts:{library:'',copyLatest:''}}});assert.equal(new Store(dir).data.settings.shortcuts.copyLatest,'');assert.throws(()=>restored.modify('setSettings',{patch:{shortcuts:{unknown:'Control+Alt+U'}}}),/Invalid shortcut/);
 }));
+
+test('capture pause preference persists and cannot be set to a non-boolean value',()=>fixture((s,_clock,dir)=>{
+ assert.equal(s.data.settings.capturePaused,false);
+ s.modify('setSettings',{patch:{capturePaused:true}});
+ assert.equal(s.data.settings.capturePaused,true);
+ assert.equal(new Store(dir).data.settings.capturePaused,true);
+ assert.throws(()=>s.modify('setSettings',{patch:{capturePaused:'yes'}}),/Invalid preference/);
+ s.modify('setSettings',{patch:{capturePaused:false}});
+ assert.equal(new Store(dir).data.settings.capturePaused,false);
+}));
