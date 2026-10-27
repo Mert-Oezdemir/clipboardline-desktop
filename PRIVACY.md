@@ -14,6 +14,7 @@ Official macOS builds keep their existing storage location for compatibility. A 
 
 ### Capture and network choices
 
+- On Windows, the tray menu has a persistent **Pause clipboard capture** switch. While paused, new text, image and link copies are not added to history, even if a clipboard read was already in progress. Existing saved items remain available; this does not pause manual screenshots, file imports or earlier metadata requests.
 - Image and text clipboard capture are separate controls and are opt-in in the macOS implementation. Recognized private clipboard markers are skipped; not every application marks confidential data. The watcher cannot infer that an arbitrary value is a password or token.
 - Standalone URL capture and link enrichment are separate settings. The community Dev build defaults link enrichment to off. If you enable it, enrichment can request the saved URL from its website. YouTube previews use YouTube's public oEmbed/thumbnail services. Those services can see the request and your network address. Disable link previews to avoid these requests.
 - macOS automatic metadata requests require HTTPS and reject credentials, known secret query parameters and private/reserved network destinations. Each DNS result and redirect is checked; connections use the checked IP with the original hostname for TLS validation. Preview HTML is not executed. A blocked or unsupported preview leaves the saved link available to open yourself.
@@ -33,6 +34,7 @@ macOS'taki veritabanı ve dosyalar kullanıcıya özel izinlerle saklanır, anca
 
 Resmî macOS sürümleri mevcut veri konumunu uyumluluk için korur. Kaynaktan derlenen **ClipBoardLine Dev** ayrı `~/Library/Application Support/ClipBoardLine Dev/Screenshots/` klasörünü ve `org.clipboardline.community` ayar alanını kullanır. Resmî uygulamanın geçmişini içe aktarmaz veya güncellemez.
 
+- Windows tepsi menüsündeki **Pano yakalamayı duraklat** seçeneği açıkken yeni metin, görsel veya bağlantı kopyaları kaydedilmez. Önceden kaydedilen öğeler silinmez; manuel ekran görüntüsü alma veya dosya içe aktarma durmaz.
 - macOS'ta görsel ve metin yakalama ayrı, isteğe bağlı ayarlardır. Bilinen özel pano işaretleri atlanır; her uygulama hassas içeriği işaretlemez.
 - Link yakalama ve link önizlemesi ayrı ayarlardır. Community Dev derlemesinde önizleme varsayılan olarak kapalıdır. Açarsanız ilgili siteye veya YouTube'a ağ isteği gönderebilir; istemiyorsanız kapalı bırakın.
 - macOS'taki otomatik metadata HTTPS gerektirir; kimlik bilgilerini, bilinen hassas sorgu alanlarını ve özel/rezerve ağ adreslerini reddeder. DNS cevapları ve yönlendirmeler denetlenir; bağlantı denetlenmiş IP'ye, TLS doğrulaması özgün alan adına göre yapılır. Önizleme HTML'i çalıştırılmaz. Önizleme engellenirse kaydettiğiniz link kendiniz açabilmeniz için korunur.
