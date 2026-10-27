@@ -8,7 +8,7 @@ Images, text and links, close at hand. Keep recent copies on three shelves, save
 
 > The macOS edition uses Swift, AppKit, SwiftUI, Vision and Core ML on macOS 14 or later, for Apple silicon and Intel. The separate Electron edition is available for Windows x64; see the platform matrix for differences and native validation evidence.
 
-**Feature reference — 1.7.3:** this page describes the implementation in this source tree. The [latest release](https://github.com/orkunisitmak/clipboardline-desktop/releases/latest) lists available packages; every new release requires both native platform suites. See the [parity scope and verification requirements](docs/parity-1.7.3.md).
+**Feature reference — current source:** this page describes the implementation in this source tree, which may be newer than the latest packaged release. The [latest release](https://github.com/orkunisitmak/clipboardline-desktop/releases/latest) lists available packages; every new release requires both native platform suites. See the [parity scope and verification requirements](docs/parity-1.7.3.md).
 
 ## Your first five minutes
 
@@ -36,7 +36,7 @@ Images, text and links, close at hand. Keep recent copies on three shelves, save
 | **Take down and recover** | S removes the selection and selects the next surviving item. Saved records remain in Library; temporary copies enter recoverable Trash. Backspace restores the latest shelf removal, including batches, during the current app session. External original files are preserved. |
 | **Keyboard-driven Actions** | Search the contextual Actions bar for organization, navigation, image editing, Library views, settings and updates. Commands show current shortcut assignments and operate on the item or ordered batch captured when the bar opened. |
 | **An interface you can tune** | Small, medium and large cards; soft shelf colors or neutral glass; configurable reveal behavior, full-screen-app visibility, sounds and login launch. Choose the app language independently of the system. Browsing bindings, selection keys and global shortcuts can be remapped or disabled. |
-| **Screen recordings** | MP4/MOV recordings stay in Images. Windows 1.7.3 adds file import/watching, playback, M/Actions Trim and file copy/drag/export through native Windows media APIs. Native acceptance is mandatory before publication; codec and trim differences are documented below. |
+| **Screen recordings** | MP4/MOV recordings stay in Images. The Windows source includes file import/watching, playback, M/Actions Trim and file copy/drag/export through native Windows media APIs. Native acceptance is mandatory before publication; codec and trim differences are documented below. |
 | **Native signed updates** | Mac uses Sparkle; Windows uses its signed installer feed. Official public updates need no GitHub account or token. Automatic checks can be disabled; when enabled they run hourly while the app is running. Download and installation require your action. |
 
 ## macOS default keyboard shortcuts
@@ -222,7 +222,7 @@ These are the Windows defaults, separate from the macOS table. Control replaces 
 
 Global Library and copy-latest-image shortcuts are off by default and can be recorded or disabled in Settings, alongside shelf toggle, search and screen capture. See the Windows native guide for collection defaults, platform gaps, build commands and native acceptance evidence.
 
-## Windows interface and updates — 1.7.3
+## Windows interface and updates (source reference)
 
 ### Hanging shelves over your desktop
 
@@ -305,7 +305,7 @@ Sparkle provides the updater. Apple Vision and the original MobileCLIP-S2 models
 
 **One public repository.** `orkunisitmak/clipboardline-desktop` now contains the source and Mac/Windows releases. Each platform keeps its own signed feed; every release designated Latest carries both current `appcast.xml` and `windows-update.json`. Old Mac `clipboardline-app` update addresses continue through verified compatibility redirects, so existing Mac installations keep updating without reinstalling. Both signed feeds and all three previous Mac ZIPs were verified through the old addresses without authentication, with identical bytes and archive hashes.
 
-Historical release: Windows [1.7.2 build 64](https://github.com/orkunisitmak/clipboardline-desktop/releases/tag/windows-1.7.2-build64) is released: [download the x64 installer](https://github.com/orkunisitmak/clipboardline-desktop/releases/download/windows-1.7.2-build64/ClipBoardLine-Setup-1.7.2-x64.exe).
+Historical release (not the latest): Windows [1.7.2 build 64](https://github.com/orkunisitmak/clipboardline-desktop/releases/tag/windows-1.7.2-build64) is released: [download the x64 installer](https://github.com/orkunisitmak/clipboardline-desktop/releases/download/windows-1.7.2-build64/ClipBoardLine-Setup-1.7.2-x64.exe).
 
 **Historical 1.7.2 verification:** for source revision [`e734c7e`](https://github.com/orkunisitmak/clipboardline-desktop/commit/e734c7e97c0f8b22ff27a4ead3f82382407854cd), [Windows CI run 39296605977](https://github.com/orkunisitmak/clipboardline-desktop/actions/runs/39296605977) passed **65 Node tests, 146 native acceptance checks** (48 source, 49 packaged, 49 installed) and **7 isolated upgrade checks**.
 
