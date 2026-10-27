@@ -91,7 +91,7 @@ function createTray(){
   tray=new Tray(appIcon());
   trayPresentation=new StatusTray({tray,createIcon:summary=>trayIcon(nativeImage,appIcon(),summary),createMenu:summary=>{
     const t=(key,...values)=>translated(summary.language,key,...values);
-    return Menu.buildFromTemplate([{id:'tray-show',label:t('Show line'),click:()=>show('shelves')},{id:'tray-library',label:t('Library'),click:()=>show('library')},{id:'tray-capture',label:t('Screenshots'),click:()=>capture()},{id:'tray-settings',label:t('Settings'),click:()=>show('settings')},
+    return Menu.buildFromTemplate([{id:'tray-show',label:t('Show line'),click:()=>show('shelves')},{id:'tray-library',label:t('Library'),click:()=>show('library')},{id:'tray-capture',label:t('Screenshots'),click:()=>capture()},{id:'tray-pause-capture',type:'checkbox',checked:summary.capturePaused,label:summary.language==='tr'?'Pano yakalamayı duraklat':'Pause clipboard capture',click:()=>{store.modify('setSettings',{patch:{capturePaused:!store.data.settings.capturePaused}});lastFingerprint='';broadcast();}},{id:'tray-settings',label:t('Settings'),click:()=>show('settings')},
       ...(summary.updateVersion?[{id:'tray-update',label:t('Update available')+': '+summary.updateVersion+'…',click:openUpdates}]:[]),{id:'tray-check',label:t('Check for updates…'),click:async()=>{await openUpdates();await updates.check();}},{type:'separator'},{id:'tray-quit',label:t('Quit %@','ClipBoardLine'),click:()=>app.quit()}]);
   }});
   refreshTray();tray.on('click',()=>desiredVisible?hide():show('shelves'));
@@ -163,14 +163,14 @@ async function clipboardContent() {
   return readClipboardContent({clipboard,sequence:()=>native.clipboardSequence(),marker:copyMarker,plainURL});
 }
 async function readClipboard() {
-  if(capturing){pendingClipboard=true;return;}if(!store||closing||!['captureText','captureImages','captureLinks'].some(key=>store.data.settings[key]))return;capturing=true;
+  if(capturing){pendingClipboard=true;return;}if(!store||closing||store.data.settings.capturePaused||!['captureText','captureImages','captureLinks'].some(key=>store.data.settings[key]))return;capturing=true;
   try{
-    const content=await clipboardContent();if(!content)return;
+    const content=await clipboardContent();if(!content||closing||store.data.settings.capturePaused)return;
     if(content.raced){pendingClipboard=true;return;}
     if(content.fingerprint===lastFingerprint)return;lastFingerprint=content.fingerprint;
     if(content.fingerprint===ownFingerprint){ownFingerprint='';return;}
     if(content.owned)return;
-    const key={image:'captureImages',text:'captureText',link:'captureLinks'}[content.kind];if(!store.data.settings[key])return;
+    const key={image:'captureImages',text:'captureText',link:'captureLinks'}[content.kind];if(store.data.settings.capturePaused||!store.data.settings[key])return;
     const item=store.insert(content.kind,content.value);broadcast();
     if(item.kind==='link')void enrich(item.id);
     if(item.kind==='image'){queueOCR(item.id);refreshImageSearch();}
