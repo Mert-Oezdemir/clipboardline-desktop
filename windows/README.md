@@ -10,11 +10,11 @@ checks. A passing model or renderer test on another operating system does not
 certify native Windows paste, capture, global keys or installation. Check the
 actual Windows CI result and release assets for the build you use.
 
-Windows [1.7.2 build 64](https://github.com/orkunisitmak/clipboardline-desktop/releases/tag/windows-1.7.2-build64) is released: [download the x64 installer](https://github.com/orkunisitmak/clipboardline-desktop/releases/download/windows-1.7.2-build64/ClipBoardLine-Setup-1.7.2-x64.exe).
+**For current Windows and macOS packages, use [Latest release](https://github.com/orkunisitmak/clipboardline-desktop/releases/latest).** Historical Windows [1.7.2 build 64](https://github.com/orkunisitmak/clipboardline-desktop/releases/tag/windows-1.7.2-build64) is archived here: [download the x64 installer](https://github.com/orkunisitmak/clipboardline-desktop/releases/download/windows-1.7.2-build64/ClipBoardLine-Setup-1.7.2-x64.exe).
 
 **Historical 1.7.2 verification:** for source revision [`e734c7e`](https://github.com/orkunisitmak/clipboardline-desktop/commit/e734c7e97c0f8b22ff27a4ead3f82382407854cd), [Windows CI run 39296605977](https://github.com/orkunisitmak/clipboardline-desktop/actions/runs/39296605977) passed **65 Node tests, 146 native acceptance checks** (48 source, 49 packaged, 49 installed) and **7 isolated upgrade checks**.
 
-**Published version:** the download links above are for macOS and Windows **1.7.2**; the **1.7.3 candidate** is not published yet. Future normal updates use the same product version on both platforms; platform build counters remain independent.
+**Current release:** refer to [Latest release](https://github.com/orkunisitmak/clipboardline-desktop/releases/latest) for actual published packages and validation. The 1.7.2 downloads and 1.7.3 candidate discussions below are historical; do not treat them as current availability. Platform build counters can differ.
 
 **Historical consolidation checks (1.7.1–1.7.2):** macOS 1.7.0 → 1.7.1 and Windows 1.7.1 → 1.7.2 installed from the application and reopened automatically, retaining history and settings. The [real Windows update run](https://github.com/orkunisitmak/clipboardline-desktop/actions/runs/39309767453) used unchanged production binaries, feed and key. Current updates need no GitHub token. Build64’s [exact-source native checks](https://github.com/orkunisitmak/clipboardline-desktop/actions/runs/39307655801) also passed (48 source, 49 packaged, 49 installed and seven candidate upgrade checks); application code is unchanged from build63.
 
@@ -37,7 +37,7 @@ limits and expire into recoverable Library Trash. Take-down hides saved records
 from the shelf and trashes temporary ones. External original files remain in
 place. There is no cloud sync, automatic macOS history import or encrypted vault.
 
-**1.7.3 candidate:** this guide describes the current source. Publication is pending both native platform suites; see [scope and verification requirements](../docs/parity-1.7.3.md). Downloads above remain the published 1.7.2 packages.
+**Source features:** the historical 1.7.3 milestone and its [verification scope](../docs/parity-1.7.3.md) remain documented, but current source and releases have advanced. Check the actual published release notes before relying on a feature.
 
 ## Keyboard workflow
 
@@ -51,7 +51,7 @@ Native multi-image copying offers a FileDrop list and a first-image fallback;
 the receiving app determines what it consumes. Images are not combined into a
 single composite without your action.
 
-## Windows interface and updates — 1.7.3 candidate
+## Windows interface and updates (source reference)
 
 - **Hanging shelves over your desktop.** Images, text and links hang from three curved ropes on a transparent desktop surface. Aspect-fit image frames preserve wide or portrait screenshots; row controls stay compact. A plain shelf click copies and keeps browsing open. Turn on Select items or hold Ctrl/Shift to select only; clicking an empty shelf area hides the shelves.
 - **A normal Library and Settings workspace.** Library opens in a resizable window with minimize, maximize and close controls. Its unified toolbar offers search, view and filter controls plus sidebar/inspector toggles. Neutral grid/list cards show media, type and tags. Settings uses a branded sidebar and grouped controls; full screen is not forced.
@@ -72,7 +72,7 @@ single composite without your action.
 - Windows uses the same nine language catalogs as Mac, including system-language
   selection; CI checks that generated catalogs match. OCR languages remain
   English/Turkish and are separate from the interface language.
-- **Screen recordings — 1.7.3 candidate, native acceptance pending.** Import
+- **Screen recordings — source implementation; confirm packaged availability in release notes.** Import
   `.mp4`/`.mov` files or collect them from explicitly watched folders. Recordings
   appear in Images with posters and duration, play inside preview, and use
   **M** or **Actions → Trim video** for a start/end range. Enter saves; Esc cancels.
@@ -131,13 +131,13 @@ See [component licenses and notices](THIRD_PARTY_NOTICES.md), the project
 
 ## Türkçe
 
-**1.7.3 adayı:** bu rehber güncel kaynak kodunu anlatır. Yayımlama için iki yerel platform testinin tamamlanması bekleniyor; [kapsam ve doğrulama şartlarına](../docs/parity-1.7.3.md) bak. İndirmeler hâlâ yayımlanmış 1.7.2 paketleridir.
+**Kaynak özellikleri:** 1.7.3 kilometre taşının [doğrulama kapsamı](../docs/parity-1.7.3.md) tarihsel belgedir; yeni kaynak ve yayımlar daha ileri sürümlerdedir. Gerçekte indirilebilir özellikler için son sürüm notlarını kontrol edin.
 
-**Yayımlanmış sürüm:** yukarıdaki indirmeler macOS ve Windows **1.7.2** içindir; **1.7.3 adayı** henüz yayımlanmadı. Sonraki normal güncellemeler iki platformda aynı sürüm numarasını kullanır; platformların teknik build sayaçları bağımsızdır.
+**Güncel yayımlar:** kullanılabilir macOS ve Windows paketleri için [son sürüme](https://github.com/orkunisitmak/clipboardline-desktop/releases/latest) bakın. Aşağıdaki 1.7.2 bağlantıları ve 1.7.3 adayı notları tarihsel kayıttır; platform build sayaçları farklı olabilir.
 
 Geçmiş birleşme doğrulaması: gerçek Windows 1.7.1 → 1.7.2 güncellemesi, uygulama içinden kurulup otomatik açıldı; metin/görsel, klasör/etiket ve ayarlar korundu. [Yayımlanmış uygulamalarla canlı koşu](https://github.com/orkunisitmak/clipboardline-desktop/actions/runs/39309767453) ve [aynı kaynaktan yerel kontroller](https://github.com/orkunisitmak/clipboardline-desktop/actions/runs/39307655801) geçti.
 
-Windows [1.7.2 build 64](https://github.com/orkunisitmak/clipboardline-desktop/releases/tag/windows-1.7.2-build64) yayımlandı: [x64 kurulumunu indir](https://github.com/orkunisitmak/clipboardline-desktop/releases/download/windows-1.7.2-build64/ClipBoardLine-Setup-1.7.2-x64.exe).
+Geçmiş Windows [1.7.2 build 64](https://github.com/orkunisitmak/clipboardline-desktop/releases/tag/windows-1.7.2-build64) arşivi: [x64 kurulumunu indir](https://github.com/orkunisitmak/clipboardline-desktop/releases/download/windows-1.7.2-build64/ClipBoardLine-Setup-1.7.2-x64.exe).
 
 [`e734c7e`](https://github.com/orkunisitmak/clipboardline-desktop/commit/e734c7e97c0f8b22ff27a4ead3f82382407854cd) kaynak revizyonunun [39296605977 numaralı Windows CI çalışmasında](https://github.com/orkunisitmak/clipboardline-desktop/actions/runs/39296605977) **65 Node testi, 146 gerçek Windows kabul kontrolü** (48 kaynak, 49 paketlenmiş, 49 kurulmuş) ve **7 izole yükseltme kontrolü** geçti.
 
@@ -161,7 +161,7 @@ Windows'ta Command yerine **Control**, Option yerine **Alt** kullanılır. Genel
 kısayollar `Ctrl+Alt+T` (askı), `Ctrl+Alt+S` (arama) ve `Ctrl+Alt+A` (ekran
 yakalama) olarak gelir; Ayarlar'dan değiştirilebilir. [Türkçe Windows kısayol tablosu](../README.tr.md#windows-varsayılan-klavye-kısayolları), beş genel ve değiştirilebilir yerel işlemlerin yanı sıra sabit düzenleyici/pencere tuşlarını ve bağlamlarını içerir. Enter askı/askı önizlemesinde kopyalayıp kapatır, odağı önceki uygulamaya döndürür. Kütüphane ve oradan açılan önizlemede kopyalayıp açık kalır. Normal askı tıklaması kapatmadan kopyalar; yalnızca seçim için Öğe seç modunu veya Ctrl/Shift tuşlarını kullan.
 
-### Windows arayüzü ve güncellemeler — 1.7.3 adayı
+### Windows arayüzü ve güncellemeler (kaynak rehberi)
 
 - **Masaüstünün üstünde asılı içerikler.** Görsel, metin ve linkler saydam masaüstü yüzeyindeki üç eğri ipte asılır. Görseli sığdıran çerçeveler yatay veya dikey ekran görüntüsünün oranını korur; satır denetimleri kompakttır. Normal askı tıklaması kopyalar ve gezinmeyi açık tutar. Yalnızca seçmek için Öğe seç modunu aç veya Ctrl/Shift basılı tut; boş askı alanına tıklamak askıları gizler.
 - **Normal kütüphane ve Ayarlar çalışma alanı.** Kütüphane; küçült, büyüt ve kapat denetimleri bulunan boyutlandırılabilir pencerede açılır. Birleşik araç çubuğunda arama, görünüm/filtre ve kenar/ayrıntı paneli denetimleri bulunur. Nötr ızgara/liste kartları medya, tür ve etiketleri gösterir. Ayarlar, uygulama kimliği bulunan kenar çubuğu ve gruplu denetimler kullanır; tam ekran zorlanmaz.
@@ -175,7 +175,7 @@ yakalama) olarak gelir; Ayarlar'dan değiştirilebilir. [Türkçe Windows kısay
 kütüphane kapsamını korur. Windows OCR’ı İngilizce/Türkçe Tesseract kullanır;
 arayüz Mac ile aynı dokuz dil kataloğunu ve sistem dili seçimini kullanır.
 İşaret/kırpma korunur; Bitti sonrasında aynı uygulama oturumunda geri alma sürer.
-**Ekran kayıtları — 1.7.3 adayı, yerel kabul testi bekleniyor:** `.mp4`/`.mov`
+**Ekran kayıtları — kaynak uygulaması; paket durumunu sürüm notlarından doğrulayın:** `.mp4`/`.mov`
 dosyalarını içe aktar veya açıkça seçtiğin izlenen klasörlerden topla. Kayıtlar
 küçük görsel ve süreyle Görseller’de görünür; önizlemede oynatılır. **M** veya
 **Eylemler → Videoyu kırp** ile aralık seç; Enter kaydeder, Esc iptal eder.
