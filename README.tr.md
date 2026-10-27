@@ -8,7 +8,7 @@ Görseller, metinler ve linkler elinin altında. Son kopyalarını üç askıda 
 
 > macOS sürümü Swift, AppKit, SwiftUI, Vision ve Core ML kullanır; Apple silicon ve Intel’de macOS 14 veya üstünü destekler. Ayrı Electron sürümü Windows x64 için kullanılabilir; farklar ve gerçek Windows doğrulama kanıtı aşağıdaki platform tablosundadır.
 
-**Özellik rehberi — 1.7.3:** bu sayfa kaynak ağacındaki uygulamayı anlatır. İndirilebilir paketler [son sürümde](https://github.com/orkunisitmak/clipboardline-desktop/releases/latest) listelenir; her yeni yayım iki yerel platform testini gerektirir. [Kapsam ve doğrulama şartları](docs/parity-1.7.3.md).
+**Özellik rehberi — güncel kaynak:** bu sayfa, yayımlanmış paketten daha yeni olabilecek kaynak ağacındaki uygulamayı anlatır. İndirilebilir paketler [son sürümde](https://github.com/orkunisitmak/clipboardline-desktop/releases/latest) listelenir; her yeni yayım iki yerel platform testini gerektirir. [Kapsam ve doğrulama şartları](docs/parity-1.7.3.md).
 
 ## İlk beş dakikan
 
@@ -36,7 +36,7 @@ Görseller, metinler ve linkler elinin altında. Son kopyalarını üç askıda 
 | **Askıdan kaldır ve geri getir** | S seçili öğeleri kaldırır ve sıradaki uygun öğeyi seçer. Kaydedilmiş kayıtlar kütüphanede kalır; geçici kopyalar kurtarılabilir Çöp Kutusu’na gider. Backspace aynı oturumdaki son askı kaldırmasını, gruplar dahil, geri getirir. Harici özgün dosyalar korunur. |
 | **Klavye odaklı Eylemler** | Bağlama uygun Eylemler çubuğunda düzenleme, gezinme, görsel araçları, kütüphane görünümleri, ayarlar ve güncellemeleri ara. Komutlar güncel kısayolları gösterir ve çubuk açılırken seçili olan öğe ya da sıralı grup üzerinde çalışır. |
 | **Kişiselleştirilebilir arayüz** | Küçük, orta ve büyük kartlar; yumuşak askı renkleri veya nötr cam; açılma davranışı, tam ekran uygulama üstünde görünme, ses ve girişte başlatma ayarları. Uygulama dilini sistemden bağımsız seç. Gezinme, seçim ve genel kısayollar değiştirilebilir veya kapatılabilir. |
-| **Ekran kayıtları** | MP4/MOV kayıtları Görseller’de tutulur. Windows 1.7.3; yerel Windows medya API’leriyle dosya içe aktarma/izleme, oynatma, M/Eylemler ile kırpma ve dosya kopyalama/sürükleme/dışa aktarma ekler. Yayımlamadan önce yerel kabul testi zorunludur; codec ve kırpma farkları aşağıdadır. |
+| **Ekran kayıtları** | MP4/MOV kayıtları Görseller’de tutulur. Windows kaynak kodu; yerel Windows medya API’leriyle dosya içe aktarma/izleme, oynatma, M/Eylemler ile kırpma ve dosya kopyalama/sürükleme/dışa aktarma içerir. Yayımlamadan önce yerel kabul testi zorunludur; codec ve kırpma farkları aşağıdadır. |
 | **Yerel ve imzalı güncellemeler** | Mac’te Sparkle, Windows’ta imzalı kurulum akışı kullanılır. Resmî herkese açık güncellemeler GitHub hesabı veya token istemez. Otomatik kontrol kapatılabilir; açıkken uygulama çalıştığı sürece saatte bir yapılır. İndirme ve kurulum senin işlemini gerektirir. |
 
 ## macOS varsayılan klavye kısayolları
@@ -222,7 +222,7 @@ Bunlar macOS tablosundan ayrı Windows varsayılanlarıdır. Command yerine Cont
 
 Kütüphane ve son görseli kopyalama için genel kısayollar varsayılan kapalıdır; askı, arama ve ekran yakalamayla birlikte Ayarlar’dan atanabilir veya kapatılabilir. Toplama varsayılanları, platform farkları, derleme komutları ve gerçek Windows kabul testi kanıtı için Windows yerel kullanım rehberine bak.
 
-## Windows arayüzü ve güncellemeler — 1.7.3
+## Windows arayüzü ve güncellemeler (kaynak rehberi)
 
 ### Masaüstünün üstünde asılı içerikler
 
@@ -296,7 +296,7 @@ Güncellemeleri Sparkle sağlar. Cihazda arama Apple Vision ve özgün MobileCLI
 
 **Tek herkese açık depo.** Kaynak kodu ile Mac/Windows sürümleri artık `orkunisitmak/clipboardline-desktop` adresinde. Her platform kendi imzalı akışını korur; Latest seçilen her sürüm hem güncel `appcast.xml` hem de `windows-update.json` dosyasını taşır. Eski Mac `clipboardline-app` güncelleme adresleri doğrulanmış uyumluluk yönlendirmeleriyle çalışır; mevcut Mac kurulumları yeniden kurulmadan güncellenmeye devam eder. İki imzalı akış ve önceki üç Mac ZIP’i eski adreslerden oturum açılmadan doğrulandı; dosya içerikleri ve arşiv özetleri birebir aynı.
 
-Geçmiş sürüm: Windows [1.7.2 build 64](https://github.com/orkunisitmak/clipboardline-desktop/releases/tag/windows-1.7.2-build64) yayımlandı: [x64 kurulumunu indir](https://github.com/orkunisitmak/clipboardline-desktop/releases/download/windows-1.7.2-build64/ClipBoardLine-Setup-1.7.2-x64.exe).
+Geçmiş sürüm (en yenisi değil): Windows [1.7.2 build 64](https://github.com/orkunisitmak/clipboardline-desktop/releases/tag/windows-1.7.2-build64) yayımlandı: [x64 kurulumunu indir](https://github.com/orkunisitmak/clipboardline-desktop/releases/download/windows-1.7.2-build64/ClipBoardLine-Setup-1.7.2-x64.exe).
 
 **Geçmiş 1.7.2 doğrulaması:** [`e734c7e`](https://github.com/orkunisitmak/clipboardline-desktop/commit/e734c7e97c0f8b22ff27a4ead3f82382407854cd) kaynak revizyonunun [39296605977 numaralı Windows CI çalışmasında](https://github.com/orkunisitmak/clipboardline-desktop/actions/runs/39296605977) **65 Node testi, 146 gerçek Windows kabul kontrolü** (48 kaynak, 49 paketlenmiş, 49 kurulmuş) ve **7 izole yükseltme kontrolü** geçti.
 
